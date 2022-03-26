@@ -1,0 +1,12 @@
+.row
+  - if orient
+
+    .bubble.left
+      = message.text
+      %br
+      %note= message.author.email
+  - else
+    .bubble.right.alt-bg
+      = message.text
+      %br
+      %note= message.author.email

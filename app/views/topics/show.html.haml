@@ -1,0 +1,5 @@
+%h2
+  conversations on
+  = "\"#{@topic.title}\""
+%table.table
+  = render 'portal/table', conversations: @topic.conversations

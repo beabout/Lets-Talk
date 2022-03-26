@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   root to: 'application#index'
 
   get 'home', action: :index, controller: 'application'
-  
+
   resources :portal  
   resources :topics
+  resources :conversations
 
 
 end

@@ -12,6 +12,6 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(id)
+    @topic = Topic.friendly.find(params[:id])
   end
 end

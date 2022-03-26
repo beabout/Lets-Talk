@@ -1,0 +1,9 @@
+%table{ border: 1, frame: 'void', rules: 'rows' }
+  - conversations.each do |c|
+    %tr
+      %td= c.participants.map(&:email).join(", ")
+      %td
+        .like-banner
+          = c.likes
+          %i.fa.fa-thumbs-up{ 'aria-hidden': 'true' }
+      %td= link_to 'join', conversation_path(c), class: 'btn small-btn'

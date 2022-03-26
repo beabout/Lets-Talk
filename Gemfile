@@ -29,6 +29,10 @@ gem 'haml-rails' # https://github.com/haml/haml-rails
 
 gem 'devise' # https://github.com/heartcombo/devise
 
+gem 'friendly_id', '~> 5.4.0' # https://github.com/norman/friendly_id
+
+gem 'faker' # https://github.com/faker-ruby/faker
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 

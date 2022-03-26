@@ -1,0 +1,10 @@
+%h1 Conversations
+%table
+  - @conversations.each do |c|
+    %tr
+      %td= c.title
+      %td= c.domain
+      %td= link_to 'hop in', conversation_path(c), class: 'btn small-btn'
+
+- if current_user
+  = link_to 'create topic', new_conversation_path

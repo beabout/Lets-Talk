@@ -10,16 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_26_060744) do
+ActiveRecord::Schema.define(version: 2022_03_26_155538) do
+
+  create_table "conversation_participants", force: :cascade do |t|
+    t.integer "conversation_id"
+    t.integer "user_id"
+    t.boolean "participating_user", default: true
+    t.boolean "left_side"
+    t.index ["conversation_id"], name: "index_conversation_participants_on_conversation_id"
+    t.index ["user_id"], name: "index_conversation_participants_on_user_id"
+  end
 
   create_table "conversations", force: :cascade do |t|
+    t.integer "likes", default: 0
+    t.integer "topic_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["topic_id"], name: "index_conversations_on_topic_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "text"
+    t.integer "conversation_id"
+    t.integer "author_id"
+    t.boolean "left_side"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["author_id"], name: "index_messages_on_author_id"
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
   end
 
   create_table "topics", force: :cascade do |t|
     t.string "title"
-    t.integer "type"
+    t.integer "domain"
+    t.string "slug"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -36,4 +60,6 @@ ActiveRecord::Schema.define(version: 2022_03_26_060744) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "conversation_participants", "conversations"
+  add_foreign_key "conversation_participants", "users"
 end
