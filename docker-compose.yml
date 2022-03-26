@@ -16,7 +16,7 @@ services:
       - my_dbdata:/var/lib/postgresql/data
     env_file: .env.development
     ports:
-      - '5432:5432'
+      - '34231:5432'
 volumes:
   my_dbdata:
   bundle_cache:
