@@ -1,4 +1,6 @@
 .navbar{ style: "text-align:center;"}
+  - if !user_signed_in?
+    = link_to 'home', root_path, class: 'nav-item'  
   = link_to 'topics', topics_path, class: 'nav-item'
   - if current_user
     = link_to 'my stuff', portal_index_path, class: 'nav-item'

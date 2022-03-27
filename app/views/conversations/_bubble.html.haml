@@ -1,12 +1,11 @@
 .row
   - if orient
-
     .bubble.left
       = message.text
       %br
-      %note= message.author.email
+      %note= message.time_and_sender
   - else
     .bubble.right.alt-bg
       = message.text
       %br
-      %note= message.author.email
+      %note= message.time_and_sender

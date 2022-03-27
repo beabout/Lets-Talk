@@ -46,7 +46,7 @@ h3 {
 }
 
 /* COLOR STYLING */
-.emphasis { color: $alt; }
+.emphasis { color: $alt; text-decoration: none; }
 .alt-bg { background-color: $alt !important; }
 /* TEXT STYLING */
 .underline { text-decoration: underline; }

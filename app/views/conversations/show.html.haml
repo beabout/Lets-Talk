@@ -1,8 +1,14 @@
 %h1.center= @conversation.title
 .center{ style: 'margin-bottom:5rem;'}
-  %i.btn.large-btn
-    = @conversation.likes
-    .fa.fa-thumbs-up{ 'aria-hidden': 'true' }
+  - if current_user && @conversation.participants.exclude?(current_user)
+    = link_to root_path do
+      %i.btn.large-btn
+        = @conversation.likes
+        .fa.fa-thumbs-up{ 'aria-hidden': 'true' }
+  - else
+    %i.btn.large-btn
+      = @conversation.likes
+      .fa.fa-thumbs-up{ 'aria-hidden': 'true' }
 
 - side = false
 - @messages.each do |m|
