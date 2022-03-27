@@ -1,0 +1,14 @@
+%h1 New Topic
+= form_for @topic do |f|
+  .form-row
+    = f.label :title, class: 'bold'
+    %br
+    = f.text_field :title, class: 'form-title'
+  
+  .form-row
+    = f.label :domain, class: 'bold'
+    %br
+    = f.select :domain, Topic.domains, {}, { class: 'form-dropdown' }
+
+  .form-row
+    = f.submit 'submit', class: 'form-submit'
