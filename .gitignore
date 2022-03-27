@@ -40,3 +40,6 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+letstalk_development
+letstalk_test
