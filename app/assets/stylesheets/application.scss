@@ -181,6 +181,17 @@ th, tr, td {
   padding: 0.5rem;
 }
 
+.white-btn {
+  padding: 1rem;
+  background-color: white;
+  border-radius: 1rem;
+  border: 2px solid $prim; 
+  text-decoration: none;
+  color: $prim;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  margin-right: 1rem;
+}
+
 .btn {
   padding-left: 1rem;
   padding-right: 1rem;

@@ -1,5 +1,9 @@
 %h1.center= @conversation.title
 .center{ style: 'margin-bottom:5rem;'}
+  - if current_user && @conversation.creator.eql?(current_user)
+    %i.white-btn#inviteCode{ onclick: 'copyToClipboard()', value: @conversation.invite_code }
+      invite
+      .fa.fa-clone
   - if current_user && @conversation.participants.exclude?(current_user)
     = link_to root_path do
       %i.btn.large-btn.m-2
