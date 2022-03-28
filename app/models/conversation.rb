@@ -26,6 +26,10 @@ class Conversation < ApplicationRecord
   def followers
     users(participating: false)
   end
+
+  def positions
+    [position_a, position_b]
+  end
   
   def add_me_to_conversation=(value);end
   def add_me_to_conversation;end

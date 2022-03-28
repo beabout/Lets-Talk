@@ -5,12 +5,28 @@
   
   .form-row
     = f.label :creator, class: 'bold'
-    %p= current_user.username_and_email
+    %br
+    = f.text_field :creator_placeholder, value: current_user.username_and_email, readonly: true
 
   .form-row
     = f.label :topic, class: 'bold'
     %br
     = f.select :topic, Topic.all.order(:title).map{|t| [t.title, t.id] }, {}, { class: 'form-dropdown' }
+
+  .row
+    .form-row.col-50
+      = f.label 'Left Position', class: 'bold'
+      %br
+      = f.text_area :position_a
+      %br
+      %note left side of the argument
+
+    .form-row.col-50
+      = f.label 'Right position', class: 'bold'
+      %br
+      = f.text_area :position_b
+      %br
+      %note right side of the argument
 
   .form-row
     = f.check_box :add_me_to_conversation

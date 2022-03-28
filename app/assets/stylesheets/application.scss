@@ -63,6 +63,8 @@ h3 {
 .mt-5 { margin-top: 5rem; }
 .mt-10 { margin-top: 10rem; }
 .mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.mb-5 { margin-bottom: 5rem !important; }
 .p-1 { padding: 1rem; }
 .p-2 { padding: 2rem; }
 .pb-3 { padding-bottom: 3rem; }
@@ -289,4 +291,43 @@ input[type=text]:focus {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
+}
+
+.position-left {
+  background-color: $prim;
+  color: white;
+  margin: 0.25rem;
+  padding: 0.5rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
+}
+
+.position-right {
+  background-color: $alt;
+  color: white;
+  margin: 0.25rem;
+  padding: 0.5rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
+}
+
+
+textarea {
+  background-color: white;
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: $body-font-size;
+  border: 3px solid $prim;
+  color: $prim;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  width: 90%;
+}
+
+textarea:focus {
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
 }

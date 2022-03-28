@@ -1,5 +1,5 @@
 %h1.center= @conversation.title
-.center{ style: 'margin-bottom:5rem;'}
+.center.mb-5
   - if current_user && @conversation.creator.eql?(current_user)
     %i.white-btn#inviteCode{ onclick: 'copyToClipboard()', value: @conversation.invite_code }
       invite
@@ -13,6 +13,8 @@
     %i.btn.large-btn.m-2
       = @conversation.likes
       .fa.fa-thumbs-up{ 'aria-hidden': 'true' }
+
+= render 'positions', positions: @conversation.positions
 
 - side = false
 - @messages.each do |m|

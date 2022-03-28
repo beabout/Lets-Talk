@@ -13,7 +13,12 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    @conversation = Conversation.new(topic_id: params[:conversation][:topic], creator_id: params[:conversation][:creator_id])
+    @conversation = Conversation.new(
+      topic_id: params[:conversation][:topic], 
+      creator_id: params[:conversation][:creator_id],
+      position_a: params[:conversation][:position_a],
+      position_b: params[:conversation][:position_b]
+    )
     @conversation.invite_code = generate_invite_code
     if @conversation.save
       if params[:conversation][:add_me_to_conversation]

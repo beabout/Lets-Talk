@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_28_010635) do
+ActiveRecord::Schema.define(version: 2022_03_28_175813) do
 
   create_table "conversation_participants", force: :cascade do |t|
     t.integer "conversation_id"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(version: 2022_03_28_010635) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "creator_id"
     t.string "invite_code"
+    t.string "position_a"
+    t.string "position_b"
     t.index ["topic_id"], name: "index_conversations_on_topic_id"
   end
 
