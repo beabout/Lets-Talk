@@ -3,14 +3,6 @@ User.destroy_all
 Topic.destroy_all
 Conversation.destroy_all
 
-def generate_invite_code
-  loop do
-    @code = (0...8).map { ('a'..'z').to_a[rand(26)] }.join
-    break unless Conversation.pluck(&:invite_code).include?(@code)
-  end
-  @code
-end
-
 puts "creating users"
 users = [User.create(username: 'user', email: 'a@email.com', password: 'password')]
 10.times do 
@@ -33,27 +25,14 @@ topics = Topic.create([
 ])
 
 puts "creating conversations"
-conversations = Conversation.create([
-  { likes: (0..500).to_a.sample, topic: topics.sample, invite_code: generate_invite_code },
-  { likes: (0..500).to_a.sample, topic: topics.sample, invite_code: generate_invite_code },
-  { likes: (0..500).to_a.sample, topic: topics.sample, invite_code: generate_invite_code },
-  { likes: (0..500).to_a.sample, topic: topics.sample, invite_code: generate_invite_code },
-  { likes: (0..500).to_a.sample, topic: topics.sample, invite_code: generate_invite_code },
-  { likes: (0..500).to_a.sample, topic: topics.sample, invite_code: generate_invite_code },
-  { likes: (0..500).to_a.sample, topic: topics.sample, invite_code: generate_invite_code },
-  { likes: (0..500).to_a.sample, topic: topics.sample, invite_code: generate_invite_code },
-  { likes: (0..500).to_a.sample, topic: topics.sample, invite_code: generate_invite_code },
-  { likes: (0..500).to_a.sample, topic: topics.sample, invite_code: generate_invite_code },
-  { likes: (0..500).to_a.sample, topic: topics.sample, invite_code: generate_invite_code },
-  { likes: (0..500).to_a.sample, topic: topics.sample, invite_code: generate_invite_code },
-  { likes: (0..500).to_a.sample, topic: topics.sample, invite_code: generate_invite_code },
-  { likes: (0..500).to_a.sample, topic: topics.sample, invite_code: generate_invite_code },
-  { likes: (0..500).to_a.sample, topic: topics.sample, invite_code: generate_invite_code },
-  { likes: (0..500).to_a.sample, topic: topics.sample, invite_code: generate_invite_code }
-])
+conversations = []
+16.times do 
+  conversations << Conversation.create(likes: (0..500).to_a.sample, creator: users.sample, topic: topics.sample, invite_code: (0...8).map { ('a'..'z').to_a[rand(26)] }.join)
+end
 
 puts "adding users to conversations"
 conversations.each do |c|
+  c.creator.add_to_conversation(cid: c.id, participating: true, side: true)
   users.sample((5..8).to_a.sample).each do |u|
     participating = [true, false].sample
     side = participating ? [true, false].sample : nil
