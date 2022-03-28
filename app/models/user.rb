@@ -8,6 +8,11 @@ class User < ApplicationRecord
   # has_many :conversations, through: :conversation_instances
 
   validates :email, presence: true, uniqueness: true
+  validates :username, presence: true, uniqueness: true
+
+  def username_and_email
+    "#{username} <#{email}>"
+  end
 
   def participations
     conversations(participating: true)

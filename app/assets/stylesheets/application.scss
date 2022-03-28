@@ -10,7 +10,8 @@ $body-font-size: 18px;
 $green: #4e937a;
 $jet: #30323d;
 $purple: #7d83ff;
-$blue: #007fff;
+$blue: #97DFFC;
+$error: #904E55;
 
 $prim: $purple;
 $secondary:$blue;
@@ -54,13 +55,16 @@ h3 {
 
 /* POSITIONING */
 .m-1 { margin: 1rem; }
+.m-1 { margin: 2rem; }
 .ml-1 { margin-left: 1rem; }
 .mr-1 { margin-right: 1rem; }
 .mt-1 { margin-top: 1rem; }
-.mt-1 { margin-top: 1rem; }
+.mt-2 { margin-top: 2rem; }
 .mt-5 { margin-top: 5rem; }
+.mt-10 { margin-top: 10rem; }
 .mb-1 { margin-bottom: 1rem; }
 .p-1 { padding: 1rem; }
+.p-2 { padding: 2rem; }
 .pb-3 { padding-bottom: 3rem; }
 .pb-5 { padding-bottom: 5rem; }
 .center { text-align: center; }
@@ -96,6 +100,12 @@ h3 {
 .fa-sign-out {
   color: $alt;
   opacity: 50%;
+}
+
+.underline {
+  text-decoration-color: $alt !important;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
 }
 
 table {
@@ -165,7 +175,6 @@ th, tr, td {
 
 .large-btn {
   padding: 1rem;
-  margin: 2rem;
 }
 
 .small-btn {
@@ -208,7 +217,7 @@ th, tr, td {
 
 /* FORM */
 .form-row {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .form-submit {
@@ -228,42 +237,45 @@ th, tr, td {
   outline: none;
 }
 
-.form-title {
+input[type=text] {
+  background-color: white;
   margin-top: 0.5rem;
-  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: $body-font-size;
+  border: 3px solid $prim;
+  color: $prim;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
   width: 70%;
   @media (max-width: 800px) {
     width: 95%;
   }
-  border-radius: 0.5rem;
-  padding: 0.5rem;
+}
+
+.error {
+  input {
+    border: 3px solid $error;
+  }
+  p {
+    color: $error;
+  }
+}
+
+input[type=text]:focus {
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
-  font-size: $body-font-size;
-  color: $prim;
-  border-top-style: hidden;
-  border-right-style: hidden;
-  border-left-style: hidden;
-  border-bottom-style: none;
-  outline: none;
 }
 
 .form-dropdown {
+  color: $prim;
   background-color: white;
   margin-top: 0.5rem;
-  margin-bottom: 2rem;
-  width: 70%;
-  @media (max-width: 800px) {
-    width: 95%;
-  }
   border-radius: 0.5rem;
   padding: 0.5rem;
-  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
   font-size: $body-font-size;
-  color: $prim;
-  
-  border-top-style: hidden;
-  border-right-style: hidden;
-  border-left-style: hidden;
-  border-bottom-style: none;
-  outline: none;  
+  border: 3px solid $prim;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
 }

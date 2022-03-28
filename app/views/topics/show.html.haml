@@ -1,5 +1,10 @@
 %h2
   conversations on
-  = "\"#{@topic.title}\""
+  .underline
+    = "#{@topic.title}"
 %table.table
   = render 'portal/table', conversations: @conversations
+
+%div{ style: 'padding-top: 2rem;'}
+  - if user_signed_in?
+    = link_to 'create conversation', new_conversation_path, class: 'btn large-btn'

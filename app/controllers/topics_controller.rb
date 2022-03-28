@@ -11,9 +11,9 @@ class TopicsController < ApplicationController
     puts params[:topic]
     @topic = Topic.new(title: params[:topic][:title], domain: params[:topic][:domain].to_i)
     if @topic.save
+      flash[:notice] = "Topic created"
       redirect_to topic_path(@topic)
     else
-      flash[:notice] = "Topic created"
       render :new
     end
   end

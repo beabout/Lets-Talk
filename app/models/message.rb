@@ -5,6 +5,6 @@ class Message < ApplicationRecord
   validates :author, presence: true
 
   def time_and_sender
-    "#{author.email} | #{created_at.strftime("%k:%M:%S")}"
+    "#{author.username} | #{created_at.strftime("%l:%M%P")}"
   end
 end

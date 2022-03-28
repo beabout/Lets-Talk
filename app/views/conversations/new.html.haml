@@ -1,0 +1,20 @@
+%h1 New Conversation
+
+= form_for @conversation do |f|
+  = f.hidden_field :creator_id, value: current_user.id
+  
+  .form-row
+    = f.label :creator, class: 'bold'
+    %p= current_user.username_and_email
+
+  .form-row
+    = f.label :topic, class: 'bold'
+    %br
+    = f.select :topic, Topic.all.order(:title).map{|t| [t.title, t.id] }, {}, { class: 'form-dropdown' }
+
+  .form-row
+    = f.check_box :add_me_to_conversation
+    = f.label :add_me_to_conversation, class: 'bold'
+
+  .form-row
+    = f.submit 'submit', class: 'form-submit'

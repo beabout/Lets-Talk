@@ -2,11 +2,11 @@
 .center{ style: 'margin-bottom:5rem;'}
   - if current_user && @conversation.participants.exclude?(current_user)
     = link_to root_path do
-      %i.btn.large-btn
+      %i.btn.large-btn.m-2
         = @conversation.likes
         .fa.fa-thumbs-up{ 'aria-hidden': 'true' }
   - else
-    %i.btn.large-btn
+    %i.btn.large-btn.m-2
       = @conversation.likes
       .fa.fa-thumbs-up{ 'aria-hidden': 'true' }
 
@@ -14,4 +14,3 @@
 - @messages.each do |m|
   - side = !side
   = render 'bubble', message: m, orient: side
-= render 'response'

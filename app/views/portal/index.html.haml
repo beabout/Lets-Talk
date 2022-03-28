@@ -2,10 +2,7 @@
   hello, 
   = @user.email
 
-  = link_to destroy_user_session_path, method: :delete do 
-    %i.fa.fa-sign-out{ 'aria-hidden': true }
-
-%h3 participations
+%h3 participating
 %note conversations you are actively participating in
 = render 'table', conversations: @participations
 

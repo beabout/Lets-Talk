@@ -2,9 +2,10 @@
 %table{ border: 1, frame: 'void', rules: 'rows' }
   - @topics.each do |t|
     %tr
-      %td= t.title
+      %td.emphasis= t.title
       %td= t.domain
       %td= link_to 'conversations', topic_path(t), class: 'btn small-btn'
 
-- if current_user
-  = link_to 'create topic', new_topic_path
+%div{ style: 'padding-top: 2rem;'}
+  - if user_signed_in?
+    = link_to 'create topic', new_topic_path, class: 'btn large-btn'
