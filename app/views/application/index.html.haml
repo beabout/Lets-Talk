@@ -1,10 +1,14 @@
 %h1.center let's talk
-= render 'bubble', text: "you've got opinions", orient: 'left'
-= render 'bubble', text: "as do others", orient: 'right'
-= render 'bubble', text: "if you had one dog in the fight, what would you say? ", orient: 'left'
-= render 'bubble', text: "or try not to say?", orient: 'right'
-= render 'bubble', text: "engage, say your piece",  orient: 'left'
-= render 'bubble', text: "or listen, follow the conversation", orient: 'right'
-= render 'response'
+= render 'bubble', text: "you've got opinions", orient: 'left', send_info: 'Bill'
+= render 'bubble', text: "as do others", orient: 'right', send_info: 'Lauren'
+= render 'bubble', text: "if you had one dog in the fight, what would you say? ", orient: 'left', send_info: 'George'
+= render 'bubble', text: "or try not to say?", orient: 'right', send_info: 'Garrett'
+= render 'bubble', text: "engage with others, argue for your position",  orient: 'left', send_info: 'Maddie'
+.row
+  .bubble.middle
+    or sit on the fence
+    %br
+    %note Clay
+= render 'bubble', text: "or listen, follow the conversation", orient: 'right', send_info: 'Emma'
 .center{ style: 'margin-top:4rem;'}
   = link_to 'join the conversation', new_user_registration_path, class: 'btn large-btn m-2'

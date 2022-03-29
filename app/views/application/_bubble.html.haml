@@ -2,6 +2,10 @@
   - if orient.eql?('left')
     .bubble.left
       = text
+      %br
+      %note= send_info
   - else
     .bubble.right.alt-bg
       = text
+      %br
+      %note= send_info
