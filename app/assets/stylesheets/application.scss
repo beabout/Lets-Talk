@@ -10,7 +10,12 @@ $body-font-size: 18px;
 $green: #4e937a;
 $jet: #30323d;
 $purple: #7d83ff;
-$blue: #97DFFC;
+/* This color was derived from the purple/green colors using the following algorithm:
+ * r: purple(r) + green(r) / 2, 
+ * g: purple(g) + green(g) / 2, 
+ * b: purple(b) + green(b) / 2
+ */
+$blue:#668BBD; 
 $error: #904E55;
 
 $prim: $purple;
@@ -53,6 +58,8 @@ h3 {
 .underline { text-decoration: underline; }
 .bold { font-weight: 800; }
 
+.blue-bg { background-color: $blue !important; }
+
 /* POSITIONING */
 .m-1 { margin: 1rem; }
 .m-1 { margin: 2rem; }
@@ -80,6 +87,7 @@ h3 {
 /* GRID STYLINGS */
 .col-10 { width: 10%; }
 .col-20 { width: 20%; }
+.col-25 { width: 25%; }
 .col-30 { width: 30%; }
 .col-35 { width: 35%; }
 .col-40 { width: 40%; }
@@ -92,12 +100,9 @@ h3 {
 .row { display:flex; margin-bottom: 1rem; }
 .left { margin:auto !important; margin-left:0 !important; }
 .right { margin:auto !important; margin-right:0 !important; }
+.middle { margin:auto !important; background-color: $blue !important; }
 
 /* ELEMENTS */
-.border-blue {
-  border-radius: 0.5rem;
-  border: 2px solid $blue;
-}
 
 .fa-sign-out {
   color: $alt;

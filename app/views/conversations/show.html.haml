@@ -20,3 +20,9 @@
 - @messages.each do |m|
   - side = !side
   = render 'bubble', message: m, orient: side
+.row
+  .bubble.middle
+    this is something neutral to say
+    %br
+    %note blah
+= render 'response'
