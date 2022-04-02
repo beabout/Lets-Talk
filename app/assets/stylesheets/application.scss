@@ -22,10 +22,6 @@ $prim: $purple;
 $secondary:$blue;
 $alt:$green;
 
-turbo-frame {
-  display: block;
-  border: 1px solid blue;
-}
 
 body {
   font-family: $font;
@@ -338,7 +334,7 @@ textarea {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
-  width: 90%;
+  width: 100%;
 }
 
 textarea:focus {

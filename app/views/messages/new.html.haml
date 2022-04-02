@@ -4,9 +4,7 @@
     = f.hidden_field :author_id, value: current_user.id
 
     - Message.positions.each do |p|
-      = f.radio_button :position, p
-    %br
-    %br
+      = f.radio_button :position, p[1]
     = f.text_area :text, placeholder: 'type here', class: ''
     %br
     %br

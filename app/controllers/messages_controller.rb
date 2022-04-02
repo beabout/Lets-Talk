@@ -14,7 +14,7 @@ class MessagesController < ApplicationController
     )
 
     respond_to do |format|
-      # format.turbo_stream
+      format.turbo_stream
       format.html { redirect_to @conversation }
     end
   end
@@ -22,7 +22,6 @@ class MessagesController < ApplicationController
   private 
 
   def set_conversation
-    Rails.logger.warn "*"*1000
     @conversation = Conversation.find(params[:conversation_id])
   end
 
