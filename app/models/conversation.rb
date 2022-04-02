@@ -33,6 +33,10 @@ class Conversation < ApplicationRecord
       right: position_b
     }
   end
+
+  def invite_link
+    return "#{ENV["APPLICATION_URL"]}/conversations/#{invite_code}"
+  end
   
   def add_me_to_conversation=(value);end
   def add_me_to_conversation;end

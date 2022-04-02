@@ -1,16 +1,15 @@
 // https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
 
-function copyToClipboard() {
-  /* Get the text field */
-  var copyText = document.getElementById("inviteCode");
+console.log("we are inside copy_to_clipboard")
 
-  /* Select the text field */
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+window.copyToClipboard = function() {
+  /* Get the text field */
+  let inviteCode = document.getElementById('inviteCode');
+  console.log(inviteCode);
 
   /* Copy the text inside the text field */
-  navigator.clipboard.writeText(copyText.value);
+  navigator.clipboard.writeText(inviteCode.innerText);
 
   /* Alert the copied text */
-  alert("Copied the text: " + copyText.value);
+  alert("Copied the text: " + inviteCode.innerText);
 } 

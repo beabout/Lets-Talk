@@ -1,7 +1,8 @@
 %h1.center= @conversation.title
 .center.mb-5
-  - if current_user && @conversation.creator.eql?(current_user)
-    %i.white-btn#inviteCode{ onclick: 'copyToClipboard()', value: @conversation.invite_code }
+  - if current_user
+    #inviteCode.hidden= @conversation.invite_link
+    %i.white-btn{ onclick: 'copyToClipboard()' }
       invite
       .fa.fa-clone
   - if current_user && @conversation.participants.exclude?(current_user)
@@ -25,3 +26,5 @@
       this will disappear if the 
       %code turbo_frame_tag "new_message" 
       loads properly
+
+= javascript_pack_tag 'copy_to_clipboard'
