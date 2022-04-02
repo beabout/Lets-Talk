@@ -64,6 +64,9 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  # https://medium.com/@dirkdk/running-a-rails-app-with-webpacker-and-docker-8d29153d3446
+  config.webpacker.check_yarn_integrity = false
+
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true
 

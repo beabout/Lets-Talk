@@ -1,10 +1,9 @@
+%hr
 .row
-  -# = form_for @new_message do |m|
-  -#   = f.text_field :text, class: 'bubble left response'
-  -#   %input.bubble.left.response{ 
-  -#     style: 'border:black; overflow-wrap: break-word;', 
-  -#     placeholder: 'be insightful..', 
-  -#     type: 'text', 
-  -#     id: 'piece-left', 
-  -#     name: 'pl' 
-  -#   }
+  = form_with(model: [ @message.conversation, @message]) do |f|
+    = f.hidden_field :conversation_id, value: @conversation.id
+    = f.hidden_field :author_id, value: current_user.id
+    = f.select :position, Message.positions
+    %br
+    = f.text_field :text, class: 'bubble left response'
+    = f.submit 'send'

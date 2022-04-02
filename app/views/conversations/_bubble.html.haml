@@ -1,6 +1,11 @@
 .row
-  - if orient
+  - if message.position.eql?('left')
     .bubble.left
+      = message.text
+      %br
+      %note= message.time_and_sender
+  - elsif message.position.eql?('center')
+    .bubble.middle
       = message.text
       %br
       %note= message.time_and_sender

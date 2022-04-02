@@ -1,4 +1,5 @@
 // https://www.w3schools.com/howto/howto_js_copy_clipboard.asp
+
 function copyToClipboard() {
   /* Get the text field */
   var copyText = document.getElementById("inviteCode");

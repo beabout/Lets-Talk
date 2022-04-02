@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   resources :portal  
   resources :topics
-  resources :conversations
+  resources :conversations do
+    resources :messages
+  end
 
 
 end

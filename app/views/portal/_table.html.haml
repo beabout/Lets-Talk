@@ -1,8 +1,8 @@
 %table{ border: 1, frame: 'void', rules: 'rows' }
   - conversations.each do |c|
     %tr
-      %td= link_to c.title, topic_path(c.topic), class: 'emphasis'
-      %td= c.domain
+      %td= link_to c.title, topic_path(c.topic)
+      %td.emphasis= c.domain
       %td= c.participants.map(&:username).join(", ")
       %td
         .like-banner

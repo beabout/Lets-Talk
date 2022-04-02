@@ -1,12 +1,11 @@
 class ConversationsController < ApplicationController
   def index
-    @conversations = Conversation.all
+    @conversations = Conversation.order(likes: :desc)
   end
 
   def show
     @conversation = Conversation.find(params[:id])
-    @messages = @conversation.messages.order(:created_at)
-    @new_message = Message.new
+    @message = Message.new
   end
 
   def new

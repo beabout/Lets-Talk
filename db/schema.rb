@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_28_175813) do
+ActiveRecord::Schema.define(version: 2022_03_29_142207) do
 
   create_table "conversation_participants", force: :cascade do |t|
     t.integer "conversation_id"
@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 2022_03_28_175813) do
     t.text "text"
     t.integer "conversation_id"
     t.integer "author_id"
-    t.boolean "left_side"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "position"
     t.index ["author_id"], name: "index_messages_on_author_id"
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
   end

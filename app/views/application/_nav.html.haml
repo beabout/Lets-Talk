@@ -2,6 +2,7 @@
   - if !user_signed_in?
     = link_to 'home', root_path, class: 'nav-item'  
   = link_to 'topics', topics_path, class: 'nav-item'
+  = link_to 'convos', conversations_path, class: 'nav-item'
   - if current_user
     = link_to 'my stuff', portal_index_path, class: 'nav-item'
     = link_to 'log out', destroy_user_session_path, method: :delete, class: 'nav-item'

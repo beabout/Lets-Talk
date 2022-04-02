@@ -14,15 +14,28 @@
       = @conversation.likes
       .fa.fa-thumbs-up{ 'aria-hidden': 'true' }
 
-= render 'positions', positions: @conversation.positions
+  = render 'positions', positions: @conversation.positions
 
-- side = false
-- @messages.each do |m|
-  - side = !side
-  = render 'bubble', message: m, orient: side
-.row
-  .bubble.middle
-    this is something neutral to say
+= turbo_frame_tag "conversation" do
+  #messages
+    = render @conversation.messages.order(:created_at)
+
+- if current_user
+  = form_with model: [ @conversation, @message ] do |f|
+    = f.hidden_field :conversation_id, value: @conversation.id
+    = f.hidden_field :author_id, value: current_user.id 
+
+    - Message.positions.each do |p|
+      = f.radio_button :position, p
     %br
-    %note blah
-= render 'response'
+    %br
+    = f.text_area :text, placeholder: 'type here', class: ''
+    %br
+    %br
+    = f.submit 'send', class: 'btn small-btn'
+
+  = turbo_frame_tag "new_message", src: new_conversation_message_path(@conversation) do
+    %p 
+      this will disappear if the 
+      %code turbo_frame_tag "new_message" 
+      loads properly

@@ -9,7 +9,16 @@ services:
     command: bundle exec puma -C config/puma.rb
     env_file: .env.development
     ports:
-      - "4534:4534"
+      - "3000:3000"
+    depends_on:
+      - webpacker
+  webpacker:
+    build: .
+    command: bundle exec bin/webpack-dev-server
+    volumes: 
+      - .:/myapp:cached
+    ports:
+      - "3035:3035"
   postgres:
     image: postgres
     volumes:
@@ -17,6 +26,10 @@ services:
     env_file: .env.development
     ports:
       - '34231:5432'
+  redis:
+    image: 'redis:3.2-alpine'
+    ports:
+      - '6379:6379'
 volumes:
   my_dbdata:
   bundle_cache:

@@ -18,7 +18,7 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
+gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -32,6 +32,9 @@ gem 'devise' # https://github.com/heartcombo/devise
 gem 'friendly_id', '~> 5.4.0' # https://github.com/norman/friendly_id
 
 gem 'faker' # https://github.com/faker-ruby/faker
+
+gem 'turbo-rails' # https://github.com/hotwired/turbo-rails
+# gem 'hotwire-rails' # https://www.honeybadger.io/blog/hotwire-rails/
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

@@ -4,7 +4,10 @@ Topic.destroy_all
 Conversation.destroy_all
 
 puts "creating users"
-users = [User.create(username: 'user', email: 'a@email.com', password: 'password')]
+users = [
+  User.create(username: 'user', email: 'a@email.com', password: 'password'),
+  User.create(username: 'gubber', email: 'g@email.com', password: 'password'),
+]
 10.times do 
   users << User.create(
     username: Faker::JapaneseMedia::StudioGhibli.unique.character,
@@ -27,7 +30,14 @@ topics = Topic.create([
 puts "creating conversations"
 conversations = []
 16.times do 
-  conversations << Conversation.create(likes: (0..500).to_a.sample, creator: users.sample, topic: topics.sample, invite_code: (0...8).map { ('a'..'z').to_a[rand(26)] }.join)
+  conversations << Conversation.create(
+    likes: (0..500).to_a.sample, 
+    creator: users.sample, 
+    topic: topics.sample, 
+    invite_code: (0...8).map { ('a'..'z').to_a[rand(26)] }.join,
+    position_a: 'for it',
+    position_b: 'against it'
+  )
 end
 
 puts "adding users to conversations"
@@ -44,7 +54,7 @@ conversations.each do |c|
   left_user = c.participants.first
   right_user = c.participants.last
   10.times do
-    c.messages.create(author: left_user, text: Faker::JapaneseMedia::StudioGhibli.quote)
-    c.messages.create(author: right_user, text: Faker::JapaneseMedia::StudioGhibli.quote)
+    c.messages.create(author: left_user, position: 0, text: [Faker::JapaneseMedia::StudioGhibli.quote, Faker::JapaneseMedia::StudioGhibli.quote, Faker::JapaneseMedia::StudioGhibli.quote].join(". "))
+    c.messages.create(author: right_user, position: 2, text: [Faker::JapaneseMedia::StudioGhibli.quote, Faker::JapaneseMedia::StudioGhibli.quote, Faker::JapaneseMedia::StudioGhibli.quote].join(". "))
   end
 end

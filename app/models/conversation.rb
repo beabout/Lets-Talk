@@ -28,7 +28,10 @@ class Conversation < ApplicationRecord
   end
 
   def positions
-    [position_a, position_b]
+    { 
+      left: position_a, 
+      right: position_b
+    }
   end
   
   def add_me_to_conversation=(value);end

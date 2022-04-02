@@ -22,6 +22,11 @@ $prim: $purple;
 $secondary:$blue;
 $alt:$green;
 
+turbo-frame {
+  display: block;
+  border: 1px solid blue;
+}
+
 body {
   font-family: $font;
   color: $prim;
@@ -41,6 +46,7 @@ h1 {
   text-decoration-color: $alt !important;
   text-decoration: underline;
   text-decoration-thickness: 4px;
+  text-shadow: 2px 2px black;
 }
 
 h3 {
@@ -131,6 +137,7 @@ th, tr, td {
 }
 
 .like-banner {
+  min-width: 3rem;
   width: 100%;
   text-align: center;
   background-color: $alt;
@@ -186,6 +193,7 @@ th, tr, td {
 
 .small-btn {
   padding: 0.5rem;
+  border: none;
 }
 
 .white-btn {
@@ -334,5 +342,36 @@ textarea {
 }
 
 textarea:focus {
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
+}
+
+.custom-field {
+  background-color: white;
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  font-size: $body-font-size;
+  border: 3px solid $prim;
+  color: $prim;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+  width: 70%;
+  @media (max-width: 800px) {
+    width: 95%;
+  }
+  margin-bottom: 2rem;
+}
+
+.error {
+  .custom-field {
+    border: 3px solid $error;
+  }
+  p {
+    color: $error;
+  }
+}
+
+.custom-field:focus {
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
 }
