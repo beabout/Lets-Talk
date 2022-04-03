@@ -5,7 +5,10 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = Conversation.find(params[:id])
-    @message = Message.new
+    respond_to do |format|
+      format.html { }
+      format.json { render json: @conversation }
+    end
   end
 
   def new
