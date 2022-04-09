@@ -1,22 +1,10 @@
 .row{ id: dom_id(message) }
   - if message.position.eql?('left')
-    .bubble.left
-      = message.text
-      %br
-      %note= message.time_and_sender
-      %br
-      %note= link_to 'add link', '#'
+    .left.bubble
+      = render partial: 'conversations/messages/bubble', locals: { message: message }
   - elsif message.position.eql?('center')
-    .bubble.middle
-      = message.text
-      %br
-      %note= message.time_and_sender
-      %br
-      %note= link_to 'add link', '#'
+    .middle.bubble
+      = render partial: 'conversations/messages/bubble', locals: { message: message }
   - else
-    .bubble.right.alt-bg
-      = message.text
-      %br
-      %note= message.time_and_sender
-      %br
-      %note= link_to 'add link', '#'
+    .right.bubble.alt-bg
+      = render partial: 'conversations/messages/bubble', locals: { message: message }

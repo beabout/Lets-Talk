@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_29_142207) do
+ActiveRecord::Schema.define(version: 2022_04_09_045112) do
 
   create_table "conversation_participants", force: :cascade do |t|
     t.integer "conversation_id"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2022_03_29_142207) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "position"
+    t.string "link"
     t.index ["author_id"], name: "index_messages_on_author_id"
     t.index ["conversation_id"], name: "index_messages_on_conversation_id"
   end

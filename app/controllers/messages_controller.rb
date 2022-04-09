@@ -1,8 +1,12 @@
 class MessagesController < ApplicationController
-  before_action :set_conversation, only: %i[ new create ]
+  before_action :set_conversation, only: %i[ edit new create ]
+  before_action :set_message, only: %i[ edit update ]
 
   def new
     @message = @conversation.messages.new
+  end
+
+  def edit
   end
 
   def create
@@ -19,7 +23,16 @@ class MessagesController < ApplicationController
     end
   end
 
+  def update
+    @message.update(link: params[:message][:link])
+    render partial: 'message', locals: { message: @message }
+  end
+
   private 
+
+  def set_message
+    @message = Message.find(params[:id])
+  end
 
   def set_conversation
     @conversation = Conversation.friendly.find(params[:conversation_id])

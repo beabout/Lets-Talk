@@ -1,0 +1,10 @@
+%note= message.time_and_sender
+%br
+= message.text
+%br
+= turbo_frame_tag "link-#{message.id}" do
+  - if message.link
+    %note
+      = link_to 'reference', url_for(message.link), target: '_blank'
+      |
+  %note= link_to message.link ? 'edit' : 'add reference', edit_conversation_message_path(conversation_id: message.conversation.id, id: message.id)

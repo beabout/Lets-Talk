@@ -1,0 +1,6 @@
+= turbo_frame_tag "link-#{@message.id}", target: '_top' do
+  = form_for [ @conversation, @message ] do |f|
+    = f.text_field :link, placeholder: 'https://www.iamawebsite.com'
+    = f.submit 'add', class: 'btn small-btn'
+    %br
+    %note= link_to 'back', :back
