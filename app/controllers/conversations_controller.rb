@@ -1,7 +1,18 @@
 class ConversationsController < ApplicationController
   def index
-    @conversations = Conversation.order(likes: :desc)
-  end
+    @conversations = begin
+      if params[:q]
+        query = params[:q]
+        Conversation.joins(:topic).where(
+          "topics.title LIKE ? OR position_a LIKE ? OR position_b LIKE ?",
+          "%#{query[0]}%",
+          "%#{query[0]}%", 
+          "%#{query[0]}%").order(likes: :desc)
+      else
+        Conversation.order(likes: :desc)
+      end
+    end
+  end[0]
 
   def show
     @conversation = Conversation.friendly.find(params[:id])

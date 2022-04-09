@@ -1,4 +1,5 @@
 %h1 Conversations
+= render partial: 'search'
 - @conversations.each do |c|
   = link_to conversation_path(c) do
     .card{ style: 'text-decoration:none;'}
