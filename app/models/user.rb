@@ -14,6 +14,10 @@ class User < ApplicationRecord
     "#{username} <#{email}>"
   end
 
+  def initials
+    username.first(2)
+  end
+
   def participations
     conversations(participating: true)
   end

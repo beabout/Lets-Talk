@@ -22,6 +22,10 @@ $prim: $purple;
 $secondary:$blue;
 $alt:$green;
 
+a, a:hover, a:visited, a:link {
+  text-decoration: none;
+  color: inherit;
+}
 
 body {
   font-family: $font;
@@ -107,6 +111,32 @@ h3 {
 
 /* ELEMENTS */
 
+.card {
+  border-radius: 1rem;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  // color: white;
+  margin: 1rem;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transition: 0.2s;
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.5);
+}
+
+.profile {
+  font-size: 25px;
+  width: 75px;
+  height: 75px;
+  margin-top: 40px;
+  text-align: center;
+  border-radius: 50%;
+  display: inline-block;
+  border: 2px solid $prim;
+  color: $prim;
+}
+
 .fa-sign-out {
   color: $alt;
   opacity: 50%;
@@ -117,6 +147,7 @@ h3 {
   text-decoration: underline;
   text-decoration-thickness: 3px;
 }
+
 
 table {
   width: 100%;
@@ -193,6 +224,10 @@ th, tr, td {
   border: none;
 }
 
+.green-btn {
+  background-color: $alt !important;
+}
+
 .white-btn {
   padding: 1rem;
   background-color: white;
@@ -212,6 +247,7 @@ th, tr, td {
   text-decoration: none;
   color: white;
   box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
+  display: inline-block;
 }
 
 /* NAVBAR STYLING */

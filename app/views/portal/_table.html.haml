@@ -3,7 +3,7 @@
     %tr
       %td= link_to c.title, topic_path(c.topic)
       %td.emphasis= c.domain
-      %td= c.participants.map(&:username).join(", ")
+      %td= c.simple_participants
       %td
         .like-banner
           = c.likes

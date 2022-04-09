@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :portal  
   resources :topics
   resources :conversations do
+    post 'add_user', action: :add_user
     resources :messages
   end
 
