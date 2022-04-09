@@ -4,13 +4,19 @@
       = message.text
       %br
       %note= message.time_and_sender
+      %br
+      %note= link_to 'add link', '#'
   - elsif message.position.eql?('center')
     .bubble.middle
       = message.text
       %br
       %note= message.time_and_sender
+      %br
+      %note= link_to 'add link', '#'
   - else
     .bubble.right.alt-bg
       = message.text
       %br
       %note= message.time_and_sender
+      %br
+      %note= link_to 'add link', '#'
