@@ -1,10 +1,10 @@
 .row{ id: dom_id(message) }
   - if message.position.eql?('left')
     .left.bubble
-      = render partial: 'conversations/messages/bubble', locals: { message: message }
+      = render partial: 'messages/bubble', locals: { message: message }
   - elsif message.position.eql?('center')
     .middle.bubble
-      = render partial: 'conversations/messages/bubble', locals: { message: message }
+      = render partial: 'messages/bubble', locals: { message: message }
   - else
     .right.bubble.alt-bg
-      = render partial: 'conversations/messages/bubble', locals: { message: message }
+      = render partial: 'messages/bubble', locals: { message: message }
