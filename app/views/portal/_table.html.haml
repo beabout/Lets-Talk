@@ -1,11 +1,3 @@
 %table{ border: 1, frame: 'void', rules: 'rows' }
   - conversations.each do |c|
-    %tr
-      %td= link_to c.title, topic_path(c.topic)
-      %td.emphasis= c.domain
-      %td= c.simple_participants
-      %td
-        .like-banner
-          = c.likes
-          %i.fa.fa-thumbs-up{ 'aria-hidden': 'true' }
-      %td= link_to 'join', conversation_path(c), class: 'btn small-btn'
+    = render partial: 'conversations/card', locals: { convo: c }

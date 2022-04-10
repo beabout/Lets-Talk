@@ -17,6 +17,7 @@
 
   = render 'positions', positions: @conversation.positions
 
+-# = turbo_stream_from @conversation
 #messages
   = render @conversation.messages.order(:created_at)
 

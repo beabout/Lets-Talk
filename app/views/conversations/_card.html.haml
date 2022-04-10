@@ -1,0 +1,16 @@
+= link_to conversation_path(convo) do
+  .card{ style: 'text-decoration:none;'}
+    .row
+      .col-20{ style: 'text-align:center;' }
+        .profile{ style: 'text-align: center; ' }
+          %p= convo.creator.initials
+      .col-80
+        %h2= convo.title
+        %hr{ style: 'color:white;' }
+        = convo.created_at.strftime("%-b %d, %Y")
+        |
+        = convo.simple_participants
+    .btn.small-btn{ style: 'margin:0.5rem;' }= convo.domain
+    .btn.small-btn.green-btn{ style: 'margin:0.5rem;' }
+      = convo.likes
+      %i.fa.fa-thumbs-up{ 'aria-hidden': 'true' }

@@ -27,7 +27,6 @@ class User < ApplicationRecord
   end
 
   def conversations(participating:)
-    # Conversation.joins(:conversation_instances).where("participating_user = #{participating} AND user_id = #{self.id}")
     conversation_instances.where(participating_user: participating).map(&:conversation)
   end
 

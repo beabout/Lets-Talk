@@ -1,21 +1,7 @@
 %h1 Conversations
 = render partial: 'search'
 - @conversations.each do |c|
-  = link_to conversation_path(c) do
-    .card{ style: 'text-decoration:none;'}
-      .row
-        .col-20{ style: 'text-align:center;' }
-          .profile{ style: 'text-align: center; ' }
-            %p= c.creator.initials
-        .col-80
-          %h2= c.title
-          %hr{ style: 'color:white;' }
-          %p= c.created_at.strftime("%-b %d, %Y")
-      %p= c.simple_participants
-      .btn.small-btn{ style: 'margin:0.5rem;' }= c.domain
-      .btn.small-btn.green-btn{ style: 'margin:0.5rem;' }
-        = c.likes
-        %i.fa.fa-thumbs-up{ 'aria-hidden': 'true' }
+  = render partial: 'card', locals: { convo: c }
 
 %div{ style: 'padding-top: 2rem;'}
   - if user_signed_in?

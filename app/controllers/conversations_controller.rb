@@ -35,8 +35,8 @@ class ConversationsController < ApplicationController
     )
     @conversation.invite_code = generate_invite_code
     if @conversation.save
-      if params[:conversation][:add_me_to_conversation]
-        current_user.add_to_conversation(conversation: @conversation)
+      unless params[:conversation][:add_me_to_conversation].eql?("0")
+        current_user.add_to_conversation(cid: @conversation.id, participating: true)
       end
       
       flash[:notice] = "Conversation created"
@@ -51,7 +51,7 @@ class ConversationsController < ApplicationController
       flash[:notice] = "You've been invited to a conversation! Create an account and start engaging!"
       redirect_to new_user_registration_path
     else
-      current_user.add_me_to_conversation
+      # current_user.add_to_conversation(cid:, participating:, side: nil)
     end
   end
 

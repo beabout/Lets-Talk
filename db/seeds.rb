@@ -2,6 +2,8 @@ puts "WARNING: DELETING EVERYTHING!!"
 User.destroy_all
 Topic.destroy_all
 Conversation.destroy_all
+Message.destroy_all
+ConversationParticipant.destroy_all
 
 puts "creating users"
 users = [

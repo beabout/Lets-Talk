@@ -6,6 +6,8 @@ class Message < ApplicationRecord
 
   validates :author, presence: true
 
+  # after_create_commit { broadcast_append_to self.room }
+
   def time_and_sender
     "#{author.username} | #{created_at.strftime("%l:%M%P")}"
   end

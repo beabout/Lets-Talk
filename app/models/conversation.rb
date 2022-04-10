@@ -8,7 +8,11 @@ class Conversation < ApplicationRecord
   has_many :messages, dependent: :destroy
 
   validates :topic, presence: true
+  validates :position_a, presence: true
+  validates :position_b, presence: true
   validates :creator, presence: true
+
+  # after_create_commit { broadcast_append_to "conversations" }
 
   def title
     topic.title
