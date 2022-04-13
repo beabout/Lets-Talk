@@ -3,12 +3,12 @@ class Topic < ApplicationRecord
   friendly_id :title, use: :slugged
   enum domain: [ 
     :politics, 
-    :arts_and_culture, 
+    :culture, 
     :entertainment, 
     :sports,
     :history,
     :nature,
-    :religion_and_spirituality,
+    :spirituality,
     :technology
   ]
 
