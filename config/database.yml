@@ -25,4 +25,7 @@ test:
 
 production:
   <<: *default
-  database: letstalk_production
+  host: <%= ENV["DATABASE_HOST"] %>
+  database: <%= ENV["DATABASE"] %>
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
